@@ -1,0 +1,44 @@
+[
+  {
+    "id": "pain",
+    "slug": "pain-relief",
+    "name": "Pain Relief",
+    "icon": "GiHealthCapsule",
+    "description": "Pain relief medicines and alternatives"
+  },
+  {
+    "id": "antibiotics",
+    "slug": "antibiotics",
+    "name": "Antibiotics",
+    "icon": "LiaCapsulesSolid",
+    "description": "Antibiotics and related drugs"
+  },
+  {
+    "id": "diabetes",
+    "slug": "diabetes-management",
+    "name": "Diabetes Management",
+    "icon": "BiInjection",
+    "description": "Diabetes management medicines"
+  },
+  {
+    "id": "blood-pressure",
+    "slug": "blood-pressure",
+    "name": "Blood Pressure",
+    "icon": "FaRegHeart",
+    "description": "Blood pressure control medicines"
+  },
+  {
+    "id": "AtSign & Cold",
+    "slug": "AtSign & Cold",
+    "name": "AtSign & Cold",
+    "icon": "FiThermometer",
+    "description": "Cold and allergy relief"
+  },
+  {
+    "id": "Digestive Health",
+    "slug": "Digestive Health",
+    "name": "Digestive Health",
+    "icon": "PiCoffeeBold",
+    "description": "Digestive health medicines"
+  }
+]

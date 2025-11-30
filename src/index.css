@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  /* chosen font + fallback */
+  --font-regular: "Chivo";
+  /* override Bootstrap body font variable so the framework uses our font */
+  --bs-body-font-family: var(--font-regular);
+}
+
+/* load fonts from public/ (served at /) */
+@font-face {
+  font-family: "Chivo";
+  font-weight: 400;
+  src: url("/fonts/Chivo-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Chivo";
+  font-weight: 700;
+  src: url("/fonts/Chivo-Bold.ttf") format("truetype");
+}
+
+/* apply globally */
+html,
+body {
+  font-family: var(--font-regular);
+  /* overflow-x: hidden; */
+}
+.main-layout {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+}
+.main-layout main {
+  flex: 1;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none !important;
+}
+section {
+  /* padding-block-end: 8rem; */
+}
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: none !important;
+}

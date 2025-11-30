@@ -1,0 +1,13 @@
+h2 {
+  font-size: 4rem;
+}
+
+/* Search form styling */
+input {
+  outline: none !important;
+}
+@media (max-width: 767.98px) {
+  .row {
+    gap: 4rem;
+  }
+}

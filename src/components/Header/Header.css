@@ -1,0 +1,41 @@
+header {
+  box-shadow: 0 2px 9px -5px rgb(25, 135, 84);
+}
+/* make links transformable and give a smooth transition */
+nav ul li a {
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+  transform: translateY(-5px);
+}
+.mobile-nav {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile-nav {
+    position: absolute;
+    top: 100%;
+    left: 25%;
+    background-color: rgb(255, 255, 255);
+    width: 20%;
+    z-index: 5;
+    box-shadow: 0 2px 9px -5px rgb(25, 135, 84);
+  }
+  .mobile-nav li:not(:last-child) {
+    border-bottom: 1px solid green;
+  }
+  .mobile-nav li a {
+    padding-block: 0.5rem;
+  }
+}
+
+.mobile-nav.open {
+  display: block;
+}
+@media (min-width: 767.9px) {
+  .mobile-nav {
+    display: block;
+  }
+}
