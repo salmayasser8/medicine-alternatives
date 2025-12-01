@@ -8,7 +8,7 @@ const MedicineCart = ({ medicine, onDelete }) => {
   const handleDecrement = () => setQuantity((q) => (q > 0 ? q - 1 : 0));
   return (
     <>
-      <div className="d-flex justify-content-between align-items-center rounded-5">
+      <div className="d-flex justify-content-between align-items-center">
         <div>
           <h3 className="fw-bold mb-1 fs-3">{medicine.name}</h3>
           <small className="text-success fs-5 d-block ">{medicine.form}</small>

@@ -11,7 +11,7 @@ const Contact = () => {
         viewport={{ once: true, amount: 0.5 }}
         transition={{
           type: "spring",
-          stiffness: 80,
+          stiffness: 100,
           duration: 1,
           delay: 0.5,
         }}

@@ -28,14 +28,14 @@
     "description": "Blood pressure control medicines"
   },
   {
-    "id": "AtSign & Cold",
+    "id": "cold",
     "slug": "AtSign & Cold",
-    "name": "AtSign & Cold",
+    "name": "Cold & Allergy Relief",
     "icon": "FiThermometer",
     "description": "Cold and allergy relief"
   },
   {
-    "id": "Digestive Health",
+    "id": "digestive",
     "slug": "Digestive Health",
     "name": "Digestive Health",
     "icon": "PiCoffeeBold",

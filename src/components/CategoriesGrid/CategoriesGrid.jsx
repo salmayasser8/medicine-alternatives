@@ -32,7 +32,7 @@ export default function CategoriesGrid({ categories }) {
       viewport={{ once: true, amount: 0.6 }}
       transition={{
         type: "spring",
-        stiffness: 80,
+        stiffness: 100,
         duration: 1,
         delay: 0.5,
       }}
