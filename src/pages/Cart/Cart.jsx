@@ -1,11 +1,13 @@
 import React from "react";
 import MedicineCart from "../../components/MedicineCart/MedicineCart";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
-  const subtotal = cartItems.reduce((sum, item) => sum + item.price, 0);
+  const subtotal = cartItems.reduce(
+    (sum, item) => sum + item.price * (item.quantity || 1),
+    0
+  );
   const shipping = cartItems.length > 0 ? 20 : 0;
   const total = subtotal + shipping;
   useEffect(() => {
@@ -18,10 +20,22 @@ const Cart = () => {
   const handleDelete = (id) => {
     const cartKey = `cart_${user.id}`;
     const deletedItem = cartItems.find((item) => item.id === id);
-    const updatedCart = cartItems.filter((item) => item.id !== id); // remove item from array
-    localStorage.setItem(cartKey, JSON.stringify(updatedCart)); // update storage
-    setCartItems(updatedCart); // update state so UI re-renders
+    const updatedCart = cartItems.filter((item) => item.id !== id);
+    localStorage.setItem(cartKey, JSON.stringify(updatedCart));
+    setCartItems(updatedCart);
     alert(`${deletedItem.name} removed from cart!`);
+  };
+  const handleQtyChange = (id, newQty) => {
+    const cartKey = `cart_${user.id}`;
+    // If qty is 0, remove item; otherwise update qty
+    const updatedCart =
+      newQty <= 0
+        ? cartItems.filter((item) => item.id !== id)
+        : cartItems.map((item) =>
+            item.id === id ? { ...item, quantity: newQty } : item
+          );
+    localStorage.setItem(cartKey, JSON.stringify(updatedCart));
+    setCartItems(updatedCart);
   };
   const proceedToCheckout = () => {
     const confirmed = window.confirm(
@@ -73,7 +87,11 @@ const Cart = () => {
                     boxShadow: "0 0 4px 1px rgba(25, 135, 84, 0.4)",
                   }}
                 >
-                  <MedicineCart medicine={item} onDelete={handleDelete} />
+                  <MedicineCart
+                    medicine={item}
+                    onDelete={handleDelete}
+                    onQtyChange={handleQtyChange}
+                  />
                 </div>
               ))
             )}

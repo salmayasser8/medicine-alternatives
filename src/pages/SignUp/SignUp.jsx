@@ -31,7 +31,7 @@ const SignUp = () => {
 
   return (
     <>
-      <section className="sign d-flex justify-content-center min-vh-100 align-items-center p-3 ">
+      <section className="sign d-flex justify-content-center min-vh-100 align-items-center  ">
         <motion.div
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 10, opacity: 1 }}
@@ -41,7 +41,7 @@ const SignUp = () => {
             duration: 0.5,
             delay: 0.5,
           }}
-          className=" box col-10  border rounded-3   text-center"
+          className=" box col-10  border rounded-3 text-center p-5"
           style={{
             maxWidth: "500px",
             boxShadow: "0 0 4px 1px rgba(25, 135, 84, 0.4)",

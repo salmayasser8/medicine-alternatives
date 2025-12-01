@@ -7,7 +7,7 @@ const Category = () => {
   const { slug } = useParams(); // هياخد slug من الرابط
   const [medicines, setMedicines] = useState([]);
   useEffect(() => {
-    fetch("/data/medicines.json")
+    fetch(`${import.meta.env.BASE_URL}data/medicines.json`)
       .then((r) => r.json())
       .then((data) => {
         // Normalize each medicine to always have forms and alternatives arrays

@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 const MedicineCard = ({ medicine }) => {
-  if (!medicine) return null;
   const navigate = useNavigate();
+  if (!medicine) return null;
   const handleAddToCart = () => {
     const user = JSON.parse(localStorage.getItem("loggedInUser"));
     if (!user) {
@@ -13,17 +13,17 @@ const MedicineCard = ({ medicine }) => {
 
     const cartKey = `cart_${user.id}`;
     const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
-
-    // Check if the medicine is already in the cart
     const exists = cart.find((m) => m.id === medicine.id);
-
-    if (!exists) {
-      cart.push(medicine);
-      localStorage.setItem(cartKey, JSON.stringify(cart));
-      // ✅ alert when added
+    if (exists) {
+      // Item already in cart — increase quantity
+      exists.quantity = (exists.quantity || 1) + 1;
     } else {
-      alert("This item is already in your cart"); // ✅ alert if duplicate
+      // New item — add with quantity 1
+      medicine.quantity = 1;
+      cart.push(medicine);
     }
+    localStorage.setItem(cartKey, JSON.stringify(cart));
+
     navigate("/cart");
   };
 

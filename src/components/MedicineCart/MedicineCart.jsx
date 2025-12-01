@@ -1,11 +1,19 @@
 import React from "react";
 import { useState } from "react";
 import { RiDeleteBin5Line } from "react-icons/ri";
-const MedicineCart = ({ medicine, onDelete }) => {
-  const [quantity, setQuantity] = useState(1);
+const MedicineCart = ({ medicine, onDelete, onQtyChange }) => {
+  const [quantity, setQuantity] = useState(medicine.quantity || 1);
   if (!medicine) return null;
-  const handleIncrement = () => setQuantity((q) => q + 1);
-  const handleDecrement = () => setQuantity((q) => (q > 0 ? q - 1 : 0));
+  const handleIncrement = () => {
+    const newQty = quantity + 1;
+    setQuantity(newQty);
+    if (onQtyChange) onQtyChange(medicine.id, newQty);
+  };
+  const handleDecrement = () => {
+    const newQty = quantity - 1;
+    setQuantity(newQty);
+    if (onQtyChange) onQtyChange(medicine.id, newQty);
+  };
   return (
     <>
       <div className="d-flex justify-content-between align-items-center">

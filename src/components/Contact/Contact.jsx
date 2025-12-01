@@ -16,7 +16,7 @@ const Contact = () => {
           delay: 0.5,
         }}
       >
-        <div
+        <motion.div
           className="row  d-flex justify-content-center "
           initial={{ y: -100, opacity: 0 }}
           whileInView={{ y: 10, opacity: 1 }}
@@ -101,7 +101,7 @@ const Contact = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </motion.div>
       </motion.section>
     </>
   );
