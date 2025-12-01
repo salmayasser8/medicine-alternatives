@@ -32,11 +32,20 @@ body {
   display: flex;
   flex-direction: column;
 
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 .main-layout main {
   flex: 1;
 }
+/* keep some flexible space at the bottom so content doesn't sit flush to the footer */
+.main-layout main {
+  padding-bottom: 5rem;
+}
+
+/* Make nested order-item UL behave as if its children were direct siblings.
+   This preserves nested semantics while allowing columns to align with the header.
+   Note: `display: contents` has broad modern browser support but may not work in very old browsers. */
+/* removed .order-items (no longer needed with table layout) */
 html {
   scroll-behavior: smooth;
   font-size: 62.5%;
@@ -45,9 +54,7 @@ html {
 a {
   text-decoration: none !important;
 }
-section {
-  /* padding-block-end: 8rem; */
-}
+/* section padding rules removed to avoid empty ruleset */
 input {
   -webkit-appearance: none;
   -moz-appearance: none;

@@ -28,7 +28,7 @@ const Login = () => {
   };
 
   return (
-    <section className="login d-flex justify-content-center min-vh-100 align-items-center ">
+    <section className="login d-flex justify-content-center align-items-center">
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 10, opacity: 1 }}

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import OrderHistory from "../../components/MedicineLogin/OrderHistory/OrderHistory";
+import OrderHistory from "../../components/OrderHistory/OrderHistory";
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem("loggedInUser")) || [];
   const [name, setName] = useState(user.name);
@@ -11,17 +11,19 @@ const Profile = () => {
 
   return (
     <>
-      <section className="container-lg mt-5 d-flex flex-column gap-5  align-items-center  ">
-        <motion.div
+      <motion.section
+        className="container-lg mt-5 d-flex flex-column gap-5  align-items-center"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 10, opacity: 1 }}
+        transition={{
+          type: "spring",
+          stiffness: 120,
+          duration: 0.5,
+          delay: 0.5,
+        }}
+      >
+        <div
           className="card col-12 col-md-10 p-4 rounded-3"
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 10, opacity: 1 }}
-          transition={{
-            type: "spring",
-            stiffness: 120,
-            duration: 0.5,
-            delay: 0.5,
-          }}
           style={{
             boxShadow: "0 0 4px 3px rgba(25, 135, 84, 0.4)",
           }}
@@ -131,9 +133,9 @@ const Profile = () => {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
         <OrderHistory />
-      </section>
+      </motion.section>
     </>
   );
 };

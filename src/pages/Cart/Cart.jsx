@@ -43,6 +43,19 @@ const Cart = () => {
     );
     if (!confirmed) return;
 
+    const newOrder = {
+      date: new Date().toLocaleDateString(),
+      total: total,
+      items: cartItems.map((item) => ({
+        name: item.name,
+        quantity: item.quantity || 1,
+      })),
+    };
+
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+    orders.push(newOrder);
+    localStorage.setItem("orders", JSON.stringify(orders));
+
     // Clear the cart
     const cartKey = `cart_${user.id}`;
     localStorage.removeItem(cartKey);
@@ -61,7 +74,7 @@ const Cart = () => {
   // }, [id]);
   return (
     <>
-      <section className="container-lg mt-5 min-vh-100">
+      <section className="container-lg mt-5">
         <div className="row gap-4  justify-content-center justify-content-lg-between ">
           <h1 className="fs-1 fw-bold mb-5">Your Shipping Cart</h1>
           <div
