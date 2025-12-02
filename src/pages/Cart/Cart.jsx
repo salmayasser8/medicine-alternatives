@@ -74,7 +74,7 @@ const Cart = () => {
   // }, [id]);
   return (
     <>
-      <section className="container-lg mt-5">
+      <section className="container-lg mt-5 " style={{ minHeight: "80vh" }}>
         <div className="row gap-4  justify-content-center justify-content-lg-between ">
           <h1 className="fs-1 fw-bold mb-5">Your Shipping Cart</h1>
           <div

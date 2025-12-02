@@ -39,7 +39,7 @@ body {
 }
 /* keep some flexible space at the bottom so content doesn't sit flush to the footer */
 .main-layout main {
-  padding-bottom: 5rem;
+  /* min-height: 120vh; */
 }
 
 /* Make nested order-item UL behave as if its children were direct siblings.
