@@ -11,9 +11,9 @@ const headerNavLinks = [
   { path: "/", name: "Home" },
   { path: "/#categories", name: "Categories" },
   { path: "/#about", name: "About" },
-  { path: "/contact", name: "Contact" },
-  { path: "/medicine details", name: "Medicine Details" },
-  { path: "/auth/login", name: "Login" },
+  { path: "/#contact", name: "Contact" },
+  // { path: "/medicine details", name: "Medicine Details" },
+  // { path: "/auth/login", name: "Login" },
   // { path: "/register", name: "Register" },
 ];
 const Header = () => {

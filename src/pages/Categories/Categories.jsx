@@ -2,15 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import categories from "../../data/categories.json";
 import MedicineCard from "../../components/MedicineCard/MedicineCard";
+import { motion } from "framer-motion";
 import { useWindowSize } from "react-use";
 const Category = () => {
-  const { slug } = useParams(); // هياخد slug من الرابط
+  const { slug } = useParams(); // هياخد slug
   const [medicines, setMedicines] = useState([]);
   useEffect(() => {
     fetch(`${import.meta.env.BASE_URL}data/medicines.json`)
       .then((r) => r.json())
       .then((data) => {
-        // Normalize each medicine to always have forms and alternatives arrays
         const normalized = (data || []).map((m) => ({
           ...m,
           forms: m.form || [], // Ensure forms is an array
@@ -26,7 +26,17 @@ const Category = () => {
   const isMobileView = width <= 768;
   return (
     <>
-      <section className="container-lg mt-5 min-vh-100">
+      <motion.section
+        className="container-lg mt-5 min-vh-100 "
+        animate={{ y: 10, opacity: 1 }}
+        initial={{ y: -100, opacity: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          duration: 1,
+          delay: 0.5,
+        }}
+      >
         <h2 className="fw-bold mb-5  ">{categoryName} Medicines</h2>
         {filteredMedicines.length > 0 ? (
           <div className="row g-md-3">
@@ -65,7 +75,7 @@ const Category = () => {
             No medicines found in this category yet.
           </div>
         )}
-      </section>
+      </motion.section>
     </>
   );
 };

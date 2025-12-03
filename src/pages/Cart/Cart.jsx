@@ -1,6 +1,7 @@
 import React from "react";
 import MedicineCart from "../../components/MedicineCart/MedicineCart";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -63,7 +64,18 @@ const Cart = () => {
   };
   return (
     <>
-      <section className="container-lg mt-5 " style={{ minHeight: "80vh" }}>
+      <motion.section
+        className="container-lg mt-5 "
+        animate={{ y: 10, opacity: 1 }}
+        initial={{ y: -100, opacity: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: 100,
+          duration: 1,
+          delay: 0.5,
+        }}
+        style={{ minHeight: "80vh" }}
+      >
         <div className="row gap-4  justify-content-center justify-content-lg-between ">
           <h1 className="fs-1 fw-bold mb-5">Your Shipping Cart</h1>
           <div
@@ -129,7 +141,7 @@ const Cart = () => {
             </div>
           )}
         </div>
-      </section>
+      </motion.section>
     </>
   );
 };

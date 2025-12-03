@@ -47,13 +47,6 @@ const Home = () => {
       alert(" Medicine not found");
     }
   };
-
-  // useEffect(() => {
-  //   const t = setTimeout(() => {
-  //   }, 180);
-  //   return () => clearTimeout(t);
-  // }, [query, medicines]);
-
   return (
     <>
       <section
@@ -96,7 +89,6 @@ const Home = () => {
                   type="submit"
                   aria-label="Search"
                   onClick={handleSearch}
-                  /* results updated via query effect */
                 >
                   Search
                 </button>
