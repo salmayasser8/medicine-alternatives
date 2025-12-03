@@ -25,10 +25,10 @@ body {
 .main-layout {
   display: flex;
   flex-direction: column;
+  min-height: 120vh;
 }
 .main-layout main {
   flex: 1;
-  /* min-height: 120vh; */
 }
 html {
   scroll-behavior: smooth;

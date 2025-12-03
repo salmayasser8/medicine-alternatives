@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
+
 import "./Login .css";
 import { motion } from "framer-motion";
 const Login = () => {
@@ -28,7 +29,10 @@ const Login = () => {
   };
 
   return (
-    <section className="login d-flex justify-content-center align-items-center">
+    <section
+      className="login d-flex justify-content-center align-items-center "
+      style={{ minHeight: "100vh" }}
+    >
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 10, opacity: 1 }}
@@ -44,6 +48,7 @@ const Login = () => {
           boxShadow: "0 0 4px 1px rgba(25, 135, 84, 0.4)",
           paddingBlock: "3rem",
           paddingInline: "3rem",
+          width: "100%",
         }}
       >
         <h3 className="fw-bold "> Welcome Back </h3>

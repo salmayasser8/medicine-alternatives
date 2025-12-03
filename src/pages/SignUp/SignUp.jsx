@@ -31,7 +31,7 @@ const SignUp = () => {
 
   return (
     <>
-      <section className="sign d-flex justify-content-center align-items-center">
+      <section className="sign d-flex justify-content-center align-items-center min-vh-100">
         <motion.div
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 10, opacity: 1 }}
@@ -59,6 +59,7 @@ const SignUp = () => {
               type="text"
               placeholder="Full Name"
               required
+              autoFocus
               className="p-3 fs-5 text-success rounded-4 border border-2 border-success"
               onChange={(e) => setName(e.target.value)}
             ></input>
@@ -67,7 +68,6 @@ const SignUp = () => {
               type="email"
               placeholder="Enter Your Email"
               required
-              autoFocus
               onChange={(e) => setEmail(e.target.value)}
             ></input>
             <input

@@ -38,7 +38,10 @@ const Header = () => {
               <Link
                 to="/"
                 className="text-success "
-                onClick={() => setOpenMenu(false)}
+                onClick={() => {
+                  setOpenMenu(false);
+                  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+                }}
               >
                 Home
               </Link>
@@ -46,7 +49,7 @@ const Header = () => {
 
             <li className="fs-3 w-100 text-center">
               <a
-                href="/#categories"
+                href="#categories"
                 className="text-success"
                 onClick={() => setOpenMenu(false)}
               >
@@ -56,7 +59,7 @@ const Header = () => {
 
             <li className="fs-3 w-100 text-center">
               <a
-                href="/#about"
+                href="#about"
                 className="text-success"
                 onClick={() => setOpenMenu(false)}
               >
@@ -66,7 +69,7 @@ const Header = () => {
 
             <li className="fs-3 w-100 text-center">
               <a
-                href="/#contact"
+                href="#contact"
                 className="text-success"
                 onClick={() => setOpenMenu(false)}
               >

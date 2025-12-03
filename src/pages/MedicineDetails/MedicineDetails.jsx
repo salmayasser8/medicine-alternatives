@@ -27,7 +27,7 @@ const MedicineDetails = () => {
   return (
     <>
       <motion.section
-        className="container-lg mt-5 min-vh-100"
+        className="container-lg mt-5 "
         animate={{ y: 10, opacity: 1 }}
         initial={{ y: -100, opacity: 0 }}
         transition={{

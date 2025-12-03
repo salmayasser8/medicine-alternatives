@@ -21,7 +21,7 @@ const Profile = () => {
           duration: 0.5,
           delay: 0.5,
         }}
-        style={{ minHeight: "150vh" }}
+        // style={{ minHeight: "150vh" }}
       >
         <div
           className="card col-12 col-md-10 p-4 rounded-3"

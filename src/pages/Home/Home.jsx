@@ -50,7 +50,7 @@ const Home = () => {
   return (
     <>
       <section
-        className=" home  container-lg  "
+        className="home container-lg  "
         style={{ marginTop: "10rem", paddingBlockEnd: "15rem" }}
       >
         <motion.div

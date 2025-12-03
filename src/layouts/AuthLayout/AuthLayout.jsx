@@ -5,6 +5,7 @@ const AuthLayout = () => {
   return (
     <div className="auth-layout">
       {/* <ScrollToTop /> */}
+
       <Outlet />
     </div>
   );
