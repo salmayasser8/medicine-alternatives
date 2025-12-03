@@ -26,7 +26,7 @@ const Category = () => {
   const isMobileView = width <= 768;
   return (
     <>
-      <section className="container-lg mt-5">
+      <section className="container-lg mt-5 min-vh-100">
         <h2 className="fw-bold mb-5  ">{categoryName} Medicines</h2>
         {filteredMedicines.length > 0 ? (
           <div className="row g-md-3">

@@ -27,7 +27,6 @@ const Cart = () => {
   };
   const handleQtyChange = (id, newQty) => {
     const cartKey = `cart_${user.id}`;
-    // If qty is 0, remove item; otherwise update qty
     const updatedCart =
       newQty <= 0
         ? cartItems.filter((item) => item.id !== id)
@@ -56,22 +55,12 @@ const Cart = () => {
     orders.push(newOrder);
     localStorage.setItem("orders", JSON.stringify(orders));
 
-    // Clear the cart
     const cartKey = `cart_${user.id}`;
     localStorage.removeItem(cartKey);
     setCartItems([]);
 
     alert("Order placed ✅");
   };
-  // useEffect(() => {
-  //   fetch("/data/medicines.json")
-  //     .then((r) => r.json())
-  //     .then((data) => {
-  //       const found = data.find((m) => m.id.toLowerCase() === id.toLowerCase());
-  //       setMedicine(found);
-  //     })
-  //     .catch(() => setMedicine(null));
-  // }, [id]);
   return (
     <>
       <section className="container-lg mt-5 " style={{ minHeight: "80vh" }}>

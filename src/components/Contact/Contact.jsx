@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 const Contact = () => {
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Message sent successfully ✅");
+    setFullName("");
+    setEmail("");
+    setMessage("");
+  };
   return (
     <>
       <motion.section
@@ -55,20 +66,32 @@ const Contact = () => {
           </div>
           <div className="col-sm-6  mx-auto d-flex flex-column align-items-center gap-3 ">
             <h4 className="fw-bold mb-2">Get in Touch</h4>
-            <form className="d-flex flex-column gap-3 w-75">
+            <form
+              className="d-flex flex-column gap-3 w-75"
+              onSubmit={handleSubmit}
+            >
               <input
                 type="text"
                 placeholder="Full Name"
-                className=" p-2  rounded-2 border border-2 border-success fs-5  "
+                required
+                autoFocus
+                value={fullName}
+                onChange={(e) => setFullName(e.target.value)}
+                className=" p-2  rounded-2 border border-2 border-success fs-5 fw-semibold "
               ></input>
               <input
                 type="email"
+                required
                 placeholder="Email Address"
-                className=" p-2 rounded-2 border border-2 border-success fs-5  "
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className=" p-2 rounded-2 border border-2 border-success fs-5 fw-semibold  "
               ></input>
               <textarea
                 placeholder="Your Message"
-                className=" p-2 rounded-2 border border-2 border-success fs-5 "
+                className=" p-2 rounded-2 border border-2 border-success fs-5 fw-semibold "
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 style={{
                   height: "8rem",
                 }}

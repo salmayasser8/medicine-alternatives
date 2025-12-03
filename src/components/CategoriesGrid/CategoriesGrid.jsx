@@ -6,7 +6,7 @@ import { GiHealthCapsule } from "react-icons/gi";
 import { PiCoffeeBold } from "react-icons/pi";
 import { BiInjection } from "react-icons/bi";
 import { FaRegHeart } from "react-icons/fa";
-import "./CategoriesGrid.css";
+
 import { motion } from "framer-motion";
 const icons = {
   FiThermometer: (
@@ -50,7 +50,6 @@ export default function CategoriesGrid({ categories }) {
             key={cat.id}
             className="col-10 col-sm-6 col-md-4 col-lg-2 d-flex"
           >
-            {/* Each card links to its category page */}
             <Link
               to={`/category/${cat.slug}`}
               className="text-decoration-none w-100"
@@ -63,7 +62,6 @@ export default function CategoriesGrid({ categories }) {
                   boxShadow: "0 0 4px 1px rgba(25, 135, 84, 0.4)",
                   transition: "all 0.3s ease",
                 }}
-                // Hover effect: smooth shadow & scale
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = "scale(1.03)";
                 }}

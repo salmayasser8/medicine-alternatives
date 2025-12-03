@@ -4,13 +4,9 @@
   box-sizing: border-box;
 }
 :root {
-  /* chosen font + fallback */
   --font-regular: "Chivo";
-  /* override Bootstrap body font variable so the framework uses our font */
   --bs-body-font-family: var(--font-regular);
 }
-
-/* load fonts from public/ (served at /) */
 @font-face {
   font-family: "Chivo";
   font-weight: 400;
@@ -22,30 +18,18 @@
   src: url("/fonts/Chivo-Bold.ttf") format("truetype");
 }
 
-/* apply globally */
 html,
 body {
   font-family: var(--font-regular);
-  /* overflow-x: hidden; */
 }
 .main-layout {
   display: flex;
   flex-direction: column;
-
-  /* min-height: 100vh; */
 }
 .main-layout main {
   flex: 1;
-}
-/* keep some flexible space at the bottom so content doesn't sit flush to the footer */
-.main-layout main {
   /* min-height: 120vh; */
 }
-
-/* Make nested order-item UL behave as if its children were direct siblings.
-   This preserves nested semantics while allowing columns to align with the header.
-   Note: `display: contents` has broad modern browser support but may not work in very old browsers. */
-/* removed .order-items (no longer needed with table layout) */
 html {
   scroll-behavior: smooth;
   font-size: 62.5%;
@@ -54,13 +38,11 @@ html {
 a {
   text-decoration: none !important;
 }
-/* section padding rules removed to avoid empty ruleset */
 input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
-
 input:focus,
 textarea:focus {
   outline: none !important;

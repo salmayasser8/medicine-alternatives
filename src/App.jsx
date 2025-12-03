@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router}>{/* <ScrollToTop /> */}</RouterProvider>
+      <RouterProvider router={router}></RouterProvider>
     </>
   );
 }

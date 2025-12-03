@@ -36,37 +36,23 @@ const Home = () => {
   const handleSearch = () => {
     const q = query.trim().toLowerCase();
     if (!q) return;
-
-    // Find exact match
     const found = medicines.find(
       (m) =>
         m.name.toLowerCase() === q || (m.brand && m.brand.toLowerCase() === q)
     );
 
     if (found) {
-      navigate(`/medicine/${found.id}`); // Go to details page
+      navigate(`/medicine/${found.id}`);
     } else {
       alert(" Medicine not found");
     }
   };
 
-  useEffect(() => {
-    const t = setTimeout(() => {
-      // TODO: Implement search filtering when needed
-      // const q = query.trim().toLowerCase();
-      // if (!q) {
-      //   setResults([]);
-      //   return;
-      // }
-      // const filtered = medicines.filter(
-      //   (m) =>
-      //     m.name.toLowerCase().includes(q) ||
-      //     (m.brand || "").toLowerCase().includes(q)
-      // );
-      // setResults(filtered);
-    }, 180);
-    return () => clearTimeout(t);
-  }, [query, medicines]);
+  // useEffect(() => {
+  //   const t = setTimeout(() => {
+  //   }, 180);
+  //   return () => clearTimeout(t);
+  // }, [query, medicines]);
 
   return (
     <>
@@ -98,6 +84,7 @@ const Home = () => {
                 <IoIosSearch className="fs-3" />
                 <input
                   className="form-control border-0 p-3 fs-4 shadow-none"
+                  required
                   type="text"
                   placeholder="Enter Medicine Name"
                   aria-label="Search medicine"

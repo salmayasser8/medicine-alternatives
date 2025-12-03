@@ -12,7 +12,7 @@ const Profile = () => {
   return (
     <>
       <motion.section
-        className="container-lg mt-5 d-flex flex-column gap-5  align-items-center"
+        className="container-lg mt-5 d-flex flex-column gap-5  align-items-center "
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 10, opacity: 1 }}
         transition={{
@@ -21,7 +21,7 @@ const Profile = () => {
           duration: 0.5,
           delay: 0.5,
         }}
-        style={{ minHeight: "120vh" }}
+        style={{ minHeight: "150vh" }}
       >
         <div
           className="card col-12 col-md-10 p-4 rounded-3"
@@ -112,20 +112,19 @@ const Profile = () => {
                 type="button"
                 className="btn btn-success fs-4"
                 onClick={() => {
-                  // Validate: check if inputs are empty
+                  // check if inputs are empty
                   if (!newPassword.trim() || !confirmPassword.trim()) {
                     alert("Please enter new password");
                     return;
                   }
-                  // Validate: check if passwords match
+
                   if (newPassword !== confirmPassword) {
                     alert("Passwords don't match");
                     return;
                   }
-                  // Save to localStorage
+
                   localStorage.setItem("savedPassword", newPassword);
                   alert("Password saved successfully");
-                  // Clear fields after successful save
                   setNewPassword("");
                   setConfirmPassword("");
                 }}

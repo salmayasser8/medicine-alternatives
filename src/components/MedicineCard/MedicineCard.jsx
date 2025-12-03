@@ -15,10 +15,8 @@ const MedicineCard = ({ medicine }) => {
     const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
     const exists = cart.find((m) => m.id === medicine.id);
     if (exists) {
-      // Item already in cart — increase quantity
       exists.quantity = (exists.quantity || 1) + 1;
     } else {
-      // New item — add with quantity 1
       medicine.quantity = 1;
       cart.push(medicine);
     }
@@ -59,11 +57,7 @@ const MedicineCard = ({ medicine }) => {
         </div>
       )}
       <div className="mt-2 d-flex flex-wrap justify-content-between  ">
-        {/* {medicine.forms.map((f, index) => ( */}
-        <span
-          // key={index}
-          className="badge bg-success text-light fs-4 px-3 fw-semibold"
-        >
+        <span className="badge bg-success text-light fs-4 px-3 fw-semibold">
           {medicine.forms.join(" , ")}
         </span>
 
