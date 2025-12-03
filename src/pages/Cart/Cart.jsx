@@ -21,10 +21,15 @@ const Cart = () => {
   const handleDelete = (id) => {
     const cartKey = `cart_${user.id}`;
     const deletedItem = cartItems.find((item) => item.id === id);
-    const updatedCart = cartItems.filter((item) => item.id !== id);
-    localStorage.setItem(cartKey, JSON.stringify(updatedCart));
-    setCartItems(updatedCart);
-    alert(`${deletedItem.name} removed from cart!`);
+    const isConfirmed = window.confirm(
+      `Are you sure you want to remove ${deletedItem.name} from the cart?`
+    );
+    if (isConfirmed) {
+      const updatedCart = cartItems.filter((item) => item.id !== id);
+      localStorage.setItem(cartKey, JSON.stringify(updatedCart));
+      setCartItems(updatedCart);
+      alert(`${deletedItem.name} removed from cart!`);
+    }
   };
   const handleQtyChange = (id, newQty) => {
     const cartKey = `cart_${user.id}`;
@@ -52,9 +57,10 @@ const Cart = () => {
       })),
     };
 
-    const orders = JSON.parse(localStorage.getItem("orders")) || [];
-    orders.push(newOrder);
-    localStorage.setItem("orders", JSON.stringify(orders));
+    const ordersKey = `orders_${user.id}`;
+    const oldOrders = JSON.parse(localStorage.getItem(ordersKey)) || [];
+    const updatedOrders = [...oldOrders, newOrder];
+    localStorage.setItem(ordersKey, JSON.stringify(updatedOrders));
 
     const cartKey = `cart_${user.id}`;
     localStorage.removeItem(cartKey);

@@ -1,7 +1,10 @@
 import React from "react";
 
 const OrderHistory = () => {
-  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  const ordersKey = `orders_${user?.id}`;
+  const orders = JSON.parse(localStorage.getItem(ordersKey)) || [];
 
   return (
     <div
