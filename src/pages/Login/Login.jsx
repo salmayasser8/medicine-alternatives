@@ -42,13 +42,12 @@ const Login = () => {
           duration: 0.5,
           delay: 0.5,
         }}
-        className="box col-10   border rounded-3  text-center"
+        className="box col-10  border rounded-3  text-center"
         style={{
           maxWidth: "500px",
           boxShadow: "0 0 4px 1px rgba(25, 135, 84, 0.4)",
           paddingBlock: "3rem",
           paddingInline: "3rem",
-          width: "100%",
         }}
       >
         <h3 className="fw-bold "> Welcome Back </h3>
