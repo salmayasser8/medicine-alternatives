@@ -29,7 +29,7 @@ export default function CategoriesGrid({ categories }) {
       style={{ marginBlockEnd: "10rem", paddingBlockEnd: "8rem" }}
       initial={{ y: -100, opacity: 0 }}
       whileInView={{ y: 10, opacity: 1 }}
-      viewport={{ once: true, amount: 0.6 }}
+      viewport={{ once: true, amount: 0.7 }}
       transition={{
         type: "spring",
         stiffness: 100,

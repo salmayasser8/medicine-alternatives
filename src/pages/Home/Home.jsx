@@ -55,8 +55,9 @@ const Home = () => {
       >
         <motion.div
           className="row  align-items-center "
-          animate={{ y: 10, opacity: 1 }}
+          whileInView={{ y: 10, opacity: 1 }}
           initial={{ y: -100, opacity: 0 }}
+          viewport={{ once: false, amount: 0.1 }}
           transition={{
             type: "spring",
             stiffness: 100,

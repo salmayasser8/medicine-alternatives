@@ -9,7 +9,7 @@ const About = () => {
         style={{ paddingBlockEnd: "12rem" }}
         initial={{ y: -100, opacity: 0 }}
         whileInView={{ y: 10, opacity: 1 }}
-        viewport={{ once: true, amount: 0.6 }}
+        viewport={{ once: true, amount: 0.5 }}
         transition={{
           type: "spring",
           stiffness: 100,

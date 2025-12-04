@@ -31,7 +31,7 @@ const Contact = () => {
           className="row  d-flex justify-content-center "
           initial={{ y: -100, opacity: 0 }}
           whileInView={{ y: 10, opacity: 1 }}
-          viewport={{ once: true, amount: 0.6 }}
+          viewport={{ once: true, amount: 0.8 }}
           transition={{
             type: "spring",
             stiffness: 80,
