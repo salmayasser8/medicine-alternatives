@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./Home.css";
 import { IoIosSearch } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import CategoriesGrid from "../../components/CategoriesGrid/CategoriesGrid";
 import categories from "../../data/categories.json";
-// import { InputGroup, FormControl, Button } from "react-bootstrap";
+import styles from "./Home.module.css";
 import medicineImg from "../../assets/medicineImg.jpg";
 import About from "../../components/About/About";
 import Contact from "../../components/Contact/Contact";
@@ -20,9 +19,7 @@ const Home = () => {
   useEffect(() => {
     const loadMedicines = async () => {
       try {
-        const res = await fetch(
-          `${import.meta.env.BASE_URL}data/medicines.json`
-        );
+        const res = await fetch("data/medicines.json");
         const data = await res.json();
         setMedicines(data || []);
       } catch (error) {
@@ -49,12 +46,23 @@ const Home = () => {
   };
   return (
     <>
+    <motion.section 
+    whileInView={{ y: 10, opacity: 1 }}
+    initial={{ y: -100, opacity: 0 }}
+    viewport={{ once: false, amount: 0.1 }}
+    transition={{
+    type: "spring",
+    stiffness: 100,
+    duration: 1,
+    delay: 0.5,
+          }}
+        >
       <section
         className="home container-lg  "
         style={{ marginTop: "10rem", paddingBlockEnd: "15rem" }}
       >
-        <motion.div
-          className="row  align-items-center "
+        <div
+          className={`row  align-items-center ${styles.row} `}
           whileInView={{ y: 10, opacity: 1 }}
           initial={{ y: -100, opacity: 0 }}
           viewport={{ once: false, amount: 0.1 }}
@@ -66,7 +74,7 @@ const Home = () => {
           }}
         >
           <div className=" col-12 col-md-6">
-            <h2 className=" fw-bold mb-5 ">
+            <h2 className={`fw-bold mb-5 ${styles.h2} `}>
               Find Medicine Alternatives Easily
             </h2>
             <p className="fs-3 text-success fw-light  ">
@@ -77,7 +85,7 @@ const Home = () => {
               <div className="input-group rounded-pill  border border-success px-2 d-flex align-items-center">
                 <IoIosSearch className="fs-3" />
                 <input
-                  className="form-control border-0 p-3 fs-4 shadow-none"
+                  className={`form-control border-0 p-3 fs-4 shadow-none ${styles.input}`}
                   required
                   type="text"
                   placeholder="Enter Medicine Name"
@@ -103,7 +111,7 @@ const Home = () => {
               className="img-fluid rounded-4 "
             />
           </div>
-        </motion.div>
+        </div>
       </section>
       <section id="categories">
         <CategoriesGrid categories={categories} />
@@ -114,6 +122,7 @@ const Home = () => {
       <section id="contact">
         <Contact />
       </section>
+      </motion.section>
     </>
   );
 };

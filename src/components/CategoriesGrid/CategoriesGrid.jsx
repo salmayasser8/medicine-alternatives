@@ -24,18 +24,9 @@ export default function CategoriesGrid({ categories }) {
   const [filteredMedicines, setFilteredMedicines] = useState([]);
 
   return (
-    <motion.section
+    <section
       className=" border-bottom border-success category container-lg  "
       style={{ marginBlockEnd: "10rem", paddingBlockEnd: "8rem" }}
-      initial={{ y: -100, opacity: 0 }}
-      whileInView={{ y: 10, opacity: 1 }}
-      viewport={{ once: true, amount: 0.7 }}
-      transition={{
-        type: "spring",
-        stiffness: 100,
-        duration: 1,
-        delay: 0.5,
-      }}
     >
       <h2
         style={{ fontSize: "4rem", marginBottom: "5rem" }}
@@ -76,6 +67,6 @@ export default function CategoriesGrid({ categories }) {
           </div>
         ))}
       </div>
-    </motion.section>
+    </section>
   );
 }

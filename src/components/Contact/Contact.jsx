@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import styles from "./Contact.module.css";
 const Contact = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -14,32 +14,12 @@ const Contact = () => {
   };
   return (
     <>
-      <motion.section
+      <section
         className="contact container-lg w-100  "
         style={{ paddingBlockEnd: "5rem" }}
-        initial={{ y: -100, opacity: 0 }}
-        whileInView={{ y: 10, opacity: 1 }}
-        viewport={{ once: true, amount: 0.5 }}
-        transition={{
-          type: "spring",
-          stiffness: 100,
-          duration: 1,
-          delay: 0.5,
-        }}
       >
-        <motion.div
-          className="row  d-flex justify-content-center "
-          initial={{ y: -100, opacity: 0 }}
-          whileInView={{ y: 10, opacity: 1 }}
-          viewport={{ once: true, amount: 0.8 }}
-          transition={{
-            type: "spring",
-            stiffness: 80,
-            duration: 1,
-            delay: 0.5,
-          }}
-        >
-          <div className="col-3 d-flex flex-column align-items-center ">
+        <div className="row d-flex justify-content-center ">
+          <div className={`col-3 d-flex flex-column align-items-center ${styles.col-3} `}>
             <ul className="list-unstyled fs-4  ">
               <li className="fw-bold mb-2">Explore</li>
               <li className="text-success">
@@ -74,7 +54,6 @@ const Contact = () => {
                 type="text"
                 placeholder="Full Name"
                 required
-                autoFocus
                 value={fullName}
                 onChange={(e) => setFullName(e.target.value)}
                 className=" p-2  rounded-2 border border-2 border-success fs-5 fw-semibold "
@@ -124,8 +103,8 @@ const Contact = () => {
               </li>
             </ul>
           </div>
-        </motion.div>
-      </motion.section>
+        </div>
+      </section>
     </>
   );
 };

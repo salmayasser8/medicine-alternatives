@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
 
-import "./Login .css";
 import { motion } from "framer-motion";
 const Login = () => {
   const navigate = useNavigate();
@@ -64,7 +63,7 @@ const Login = () => {
             onChange={(e) => setEmail(e.target.value)}
           ></input>
           <input
-            className="p-3   fs-5 text-success rounded-4 border border-2 border-success"
+            className="p-3 fs-5 text-success rounded-4 border border-2 border-success"
             type="password"
             placeholder="Enter Your Password"
             onChange={(e) => setPassword(e.target.value)}
