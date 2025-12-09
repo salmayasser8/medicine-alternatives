@@ -77,7 +77,7 @@ const Contact = () => {
               ></textarea>
               <button
                 type="submit"
-                className="bg-success text-light fs-5 p-3 border-0 rounded-2"
+                className="bg-success text-light fs-4 p-3 fw-semibold border-0 rounded-2"
               >
                 Send Message
               </button>

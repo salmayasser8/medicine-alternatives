@@ -84,7 +84,7 @@ const Header = () => {
             </Link>
             <Link
               to="/auth/signup"
-              className="text-light bg-success py-2 px-3 rounded-4 "
+              className="btn btn-success fs-3 py-2 px-3 rounded-4 "
             >
               Sign Up
             </Link>

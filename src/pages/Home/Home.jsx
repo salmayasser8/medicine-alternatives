@@ -30,20 +30,24 @@ const Home = () => {
 
     loadMedicines();
   }, []);
-  const handleSearch = () => {
-    const q = query.trim().toLowerCase();
-    if (!q) return;
-    const found = medicines.find(
-      (m) =>
-        m.name.toLowerCase() === q || (m.brand && m.brand.toLowerCase() === q)
-    );
+ const handleSearch = () => {
+  const q = query.trim().toLowerCase();  
+  if (!q) return;
 
-    if (found) {
-      navigate(`/medicine/${found.id}`);
-    } else {
-      alert(" Medicine not found");
-    }
-  };
+  const found = medicines.find(
+    (m) =>
+      m.name.toLowerCase().startsWith(q) ||
+      m.activeIngredient.toLowerCase() === q ||
+      m.alternatives?.some((alt) => alt.toLowerCase() === q)
+  );
+
+  if (found) {
+    navigate(`/medicine/${found.id}`);
+  } else {
+    alert("Medicine not found");
+  }
+};
+
   return (
     <>
     <motion.section 
@@ -82,7 +86,7 @@ const Home = () => {
               ingredients to make informed health decisions
             </p>
             <form className="  mt-md-3" onSubmit={(e) => e.preventDefault()}>
-              <div className="input-group rounded-pill  border border-success px-2 d-flex align-items-center">
+              <div className="input-group rounded-pill  border border-success px-2 d-flex align-items-center w-75">
                 <IoIosSearch className="fs-3" />
                 <input
                   className={`form-control border-0 p-3 fs-4 shadow-none ${styles.input}`}
@@ -94,7 +98,7 @@ const Home = () => {
                   onChange={(e) => setQuery(e.target.value)}
                 />
                 <button
-                  className="btn btn-success rounded-pill ms-1  px-4 fs-4"
+                  className="btn btn-success rounded-pill ms-1 fw-semibold px-4 fs-4"
                   type="submit"
                   aria-label="Search"
                   onClick={handleSearch}

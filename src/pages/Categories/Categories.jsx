@@ -39,11 +39,11 @@ const Category = () => {
       >
         <h2 className="fw-bold mb-5  ">{categoryName} Medicines</h2>
         {filteredMedicines.length > 0 ? (
-          <div className="row g-md-3">
+          <div className="row  g-3 justify-content-center  ">
             {filteredMedicines.map((medicine) => (
               <div
                 key={medicine.id}
-                className="col-10 col-md-6 col-lg-4 "
+                className="col-11 col-md-6 col-lg-4 mb-3 mb-md-0 "
                 style={isMobileView ? { margin: "auto" } : {}}
               >
                 <div
