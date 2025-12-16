@@ -106,9 +106,14 @@ The Online Medicine Store platform provides a modern and efficient solution for 
 
 ---
 
+## ▶️ Demo
+
+Check out a live demo of the project here: [Demo Video](https://www.loom.com/share/9d6c365c5c3548e9b50a3a33a98d0723)
+
+---
+
 ## ▶️ How to Run the Project
 
 ```bash
 npm install
 npm run dev
-```
