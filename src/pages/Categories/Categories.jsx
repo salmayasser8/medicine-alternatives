@@ -8,18 +8,19 @@ const Category = () => {
   const { slug } = useParams(); // هياخد slug
   const [medicines, setMedicines] = useState([]);
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}data/medicines.json`)
-      .then((r) => r.json())
-      .then((data) => {
-        const normalized = (data || []).map((m) => ({
+  fetch("/data/medicines.json")
+    .then((res) => res.json())
+    .then((data) => {
+      setMedicines(
+        (data || []).map((m) => ({
           ...m,
-          forms: m.form || [], // Ensure forms is an array
-          alternatives: m.alternatives || [], // Ensure alternatives is an array
-        }));
-        setMedicines(normalized);
-      })
-      .catch(() => setMedicines([]));
-  }, []);
+          forms: m.forms || [],
+          alternatives: m.alternatives || [],
+        }))
+      );
+    })
+    .catch(() => setMedicines([]));
+}, []);
   const filteredMedicines = medicines.filter((m) => m.category === slug);
   const categoryName = categories.find((c) => c.slug === slug)?.name || "";
   const { width } = useWindowSize();
@@ -39,7 +40,10 @@ const Category = () => {
       >
         <h2 className="fw-bold mb-5  ">{categoryName} Medicines</h2>
         {filteredMedicines.length > 0 ? (
-          <div className="row  g-3 justify-content-center  ">
+          <div className="row  g-3 justify-content-
+          Playground
+          
+          Start center  ">
             {filteredMedicines.map((medicine) => (
               <div
                 key={medicine.id}
